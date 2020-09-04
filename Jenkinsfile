@@ -1,5 +1,5 @@
 pipeline {
-  agent { dockerfile true }
+  agent any
   parameters {
     choice(name: 'door_choice',
       choices: 'one\ntwo\nthree\nfour',
@@ -11,6 +11,7 @@ pipeline {
       defaultValue: 'Dance!',
       description: 'Do the funky chicken!')
   }
+  agent { dockerfile true }
   stages {
     stage('Build') {
       steps {
